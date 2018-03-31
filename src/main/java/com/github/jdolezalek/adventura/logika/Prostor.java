@@ -250,4 +250,9 @@ public class Prostor {
     public Vec odeberVec(String nazev) {
         return veci.remove(nazev);
     }
+    
+    @Override public String toString(){
+    	return getNazev();
+    	
+    }
 }

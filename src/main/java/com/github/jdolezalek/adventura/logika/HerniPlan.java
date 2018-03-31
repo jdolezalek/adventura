@@ -1,6 +1,6 @@
 package com.github.jdolezalek.adventura.logika;
 
-
+import java.util.Observable;
 /**
  * Class HerniPlan - třída představující mapu a stav adventury.
  * 
@@ -11,7 +11,7 @@ package com.github.jdolezalek.adventura.logika;
  * @author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Jan Riha
  * @version    ZS 2016/2017
  */
-public class HerniPlan {
+public class HerniPlan extends Observable {
 
     private static final String CILOVY_PROSTOR = "doly";
 
@@ -149,6 +149,8 @@ public class HerniPlan {
      */
     public void setAktualniProstor(Prostor prostor) {
        aktualniProstor = prostor;
+       this.setChanged();
+       this.notifyObservers();
     }
 
     /**
