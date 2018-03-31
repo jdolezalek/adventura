@@ -24,7 +24,7 @@ public class homeController extends GridPane implements Observer {
 	public void odesliPrikaz() {
 		String vstup = textVstup.getText();
 		String vypis = hra.zpracujPrikaz(vstup);
-		textVypis.appendText("\nPříkaz: "+vstup+"\n"+vypis);
+		textVypis.appendText("\n \nPříkaz: "+vstup+"\n \n"+vypis);
 		textVstup.setText("");
 		
 		if(hra.konecHry()) {

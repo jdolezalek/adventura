@@ -54,7 +54,7 @@ public class Start extends Application
     	
     	primaryStage.setScene(new Scene(root));
     	primaryStage.show();
-    	primaryStage.setTitle("Základní adventura");
+    	primaryStage.setTitle("Podivné probuzení");
 	}
     
     //private Start() {}
