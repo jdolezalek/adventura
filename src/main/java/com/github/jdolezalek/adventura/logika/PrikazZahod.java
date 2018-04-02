@@ -47,6 +47,7 @@ public class PrikazZahod implements IPrikaz
         if(parametry.length == 1) {
             if (plan.getBatoh().obsahujeVec(parametry[0])) {
             Vec vec = plan.getBatoh().odeberVec(parametry[0]);
+            plan.setBatoh(plan.getBatoh());
             plan.getAktualniProstor().vlozVec(vec);
             return "Věc byla zahozena";
             }

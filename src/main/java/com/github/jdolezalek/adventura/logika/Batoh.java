@@ -4,6 +4,8 @@ package com.github.jdolezalek.adventura.logika;
 import java.util.Map;
 import java.util.HashMap;
 
+import java.util.Observable;
+
 /*******************************************************************************
  * Třída Batoh - popisuje inventář.
  * 
@@ -17,7 +19,7 @@ import java.util.HashMap;
  * @author    Jan Doležálek
  * @version   1.00.000
  */
-public class Batoh
+public class Batoh extends Observable
 {
     //== Datové atributy (statické i instancí)======================================
 
@@ -68,7 +70,8 @@ public class Batoh
      */
     public Vec vlozVec(Vec vec) {
         veci.put(vec.getNazev(),vec); //vloží klíč a hodnotu do mapy
-        if(veci.containsKey(vec.getNazev())) {return vec;}
+        if(veci.containsKey(vec.getNazev())) {
+        	return vec;}
         return null;
     }
     
@@ -103,7 +106,7 @@ public class Batoh
         return false;
         
     }
-    
+   
     //== Soukromé metody (instancí i třídy) ========================================
 
 }

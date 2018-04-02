@@ -152,6 +152,16 @@ public class HerniPlan extends Observable {
        this.setChanged();
        this.notifyObservers();
     }
+    /**
+     *  Metoda nastaví aktuální obsah batohu, používá se nejčastěji při zvednutí/zahození předmětu mezi prostory
+     *
+     *@param batoh nový obsah batohu
+     */
+    public void setBatoh(Batoh batoh) {
+    	this.batoh = batoh;
+    	this.setChanged();
+        this.notifyObservers();
+    }
 
     /**
      *  Metoda nastaví zda hráč vyhrál, na základě místnosti

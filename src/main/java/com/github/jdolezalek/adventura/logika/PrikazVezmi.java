@@ -72,6 +72,7 @@ public class PrikazVezmi implements IPrikaz
 
           //uložení do batohu
            herniPlan.getBatoh().vlozVec(vec);
+           herniPlan.setBatoh(herniPlan.getBatoh());
            return "věc '" + nazevVeci + "' jsi uložil do batohu";
     }
 

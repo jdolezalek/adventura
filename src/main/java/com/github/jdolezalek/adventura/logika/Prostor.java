@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Jan Riha
  * @version ZS 2016/2017
  */
-public class Prostor {
+public class Prostor{
 
     private String nazev;
     private String popis;

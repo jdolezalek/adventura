@@ -3,16 +3,15 @@ package com.github.jdolezalek.adventura.ui;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.imageio.ImageIO;
 
 import com.github.jdolezalek.adventura.logika.Hra;
 import com.github.jdolezalek.adventura.logika.IHra;
 import com.github.jdolezalek.adventura.logika.Prostor;
+import com.github.jdolezalek.adventura.logika.Batoh;
 
-import java.awt.image.BufferedImage;
+
 import java.io.*;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -39,6 +38,14 @@ public class homeController extends GridPane implements Observer {
 	@FXML private MenuItem menuItemAbout;
 	@FXML private MenuItem menuItemHelp;
 	@FXML private ImageView imageViewMap;
+	@FXML private ImageView imageViewBatoh1;
+	@FXML private ImageView imageViewBatoh2;
+	@FXML private ImageView imageViewBatoh3;
+	@FXML private ImageView imageViewBatoh4;
+	@FXML private ImageView imageViewBatoh5;
+	@FXML private ImageView imageViewBatoh6;
+	@FXML private ImageView imageViewBatoh7;
+	@FXML private ImageView imageViewBatoh8;
 	
 	private IHra hra;
 	
@@ -77,7 +84,14 @@ public class homeController extends GridPane implements Observer {
 	
 	public void novaHra() {
 		
-		imageViewMap.setImage(new Image("file:herniPlan.png"));
+		imageViewMap.setImage(new Image("file:res/herniPlan.png"));
+		imageViewBatoh1.setImage(null);
+		imageViewBatoh2.setImage(null);
+		imageViewBatoh3.setImage(null);
+		imageViewBatoh4.setImage(null);
+		imageViewBatoh5.setImage(null);
+		imageViewBatoh6.setImage(null);
+		imageViewBatoh7.setImage(null);
 		IHra hra = new Hra();
 		this.hra = hra;
 		seznamMistnosti.getItems().clear();
@@ -110,18 +124,50 @@ public class homeController extends GridPane implements Observer {
 		
 		
 		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("hlavní_město"))
-		    imageViewMap.setImage(new Image("file:res/herniPlan_hlavniMesto.png"));
+		    imageViewMap.setImage(new Image("/herniPlan_hlavniMesto.png"));
 		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("hospoda"))
-		    imageViewMap.setImage(new Image("file:res/herniPlan.png"));
+		    imageViewMap.setImage(new Image("/herniPlan.png"));
 		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("les"))
-		    imageViewMap.setImage(new Image("file:res/herniPlan_les.png"));
+		    imageViewMap.setImage(new Image("/herniPlan_les.png"));
 		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("hluboký_les"))
-		    imageViewMap.setImage(new Image("file:res/herniPlan_hlubokyLes.png"));
+		    imageViewMap.setImage(new Image("/herniPlan_hlubokyLes.png"));
 		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("k_elfům"))
-		    imageViewMap.setImage(new Image("file:res/herniPlan2.png"));
+		    imageViewMap.setImage(new Image("/herniPlan2.png"));
 		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("nádvoří"))
-		    imageViewMap.setImage(new Image("file:res/herniPlan2_nadvori.png"));
+		    imageViewMap.setImage(new Image("/herniPlan2_nadvori.png"));
 		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("věž_mágů"))
-		    imageViewMap.setImage(new Image("file:res/herniPlan2_vezMagu.png"));
+		    imageViewMap.setImage(new Image("/herniPlan2_vezMagu.png"));
+		
+		if(hra.getHerniPlan().getBatoh().obsahujeVec("meč"))
+			imageViewBatoh1.setImage(new Image("/mec.png"));
+		if(hra.getHerniPlan().getBatoh().obsahujeVec("zlaťáky"))
+			imageViewBatoh2.setImage(new Image("/zlataky.png"));
+		if(hra.getHerniPlan().getBatoh().obsahujeVec("luk"))
+			imageViewBatoh3.setImage(new Image("/luk.png"));
+		if(hra.getHerniPlan().getBatoh().obsahujeVec("sipy"))
+			imageViewBatoh4.setImage(new Image("/sipy.png"));
+		if(hra.getHerniPlan().getBatoh().obsahujeVec("klobasa"))
+			imageViewBatoh5.setImage(new Image("/klobasa.png"));
+		if(hra.getHerniPlan().getBatoh().obsahujeVec("pivo"))
+			imageViewBatoh6.setImage(new Image("/pivo.png"));
+		if(hra.getHerniPlan().getBatoh().obsahujeVec("lahev"))
+			imageViewBatoh7.setImage(new Image("/lahev.png"));
+		
+		if(!hra.getHerniPlan().getBatoh().obsahujeVec("meč"))
+			imageViewBatoh1.setImage(null);
+		if(!hra.getHerniPlan().getBatoh().obsahujeVec("zlaťáky"))
+			imageViewBatoh2.setImage(null);
+		if(!hra.getHerniPlan().getBatoh().obsahujeVec("luk"))
+			imageViewBatoh3.setImage(null);
+		if(!hra.getHerniPlan().getBatoh().obsahujeVec("sipy"))
+			imageViewBatoh4.setImage(null);
+		if(!hra.getHerniPlan().getBatoh().obsahujeVec("klobasa"))
+			imageViewBatoh5.setImage(null);
+		if(!hra.getHerniPlan().getBatoh().obsahujeVec("pivo"))
+			imageViewBatoh6.setImage(null);
+		if(!hra.getHerniPlan().getBatoh().obsahujeVec("lahev"))
+			imageViewBatoh7.setImage(null);
+		
+		
 	}
 }
