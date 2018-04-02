@@ -7,7 +7,6 @@ import java.util.Observer;
 import com.github.jdolezalek.adventura.logika.Hra;
 import com.github.jdolezalek.adventura.logika.IHra;
 import com.github.jdolezalek.adventura.logika.Prostor;
-import com.github.jdolezalek.adventura.logika.Batoh;
 
 
 import java.io.*;
@@ -117,6 +116,26 @@ public class homeController extends GridPane implements Observer {
 		java.awt.Desktop.getDesktop().browse(new java.net.URI("Uzivatelska_prirucka.html"));
 	}
 
+	public void jdi () {
+		textVstup.setText("jdi ");
+	}
+	
+	public void vezmi () {
+		textVstup.setText("vezmi ");
+	}
+	
+	public void zahod () {
+		textVstup.setText("zahod ");
+	}
+	
+	public void prozkoumej () {
+		textVstup.setText("prozkoumej ");
+	}
+	
+	public void mluv () {
+		textVstup.setText("mluv ");
+	}
+	
 	@Override
 	public void update(Observable o, Object arg) {
 		seznamMistnosti.getItems().clear();
@@ -167,6 +186,7 @@ public class homeController extends GridPane implements Observer {
 			imageViewBatoh6.setImage(null);
 		if(!hra.getHerniPlan().getBatoh().obsahujeVec("lahev"))
 			imageViewBatoh7.setImage(null);
+		
 		
 		
 	}
