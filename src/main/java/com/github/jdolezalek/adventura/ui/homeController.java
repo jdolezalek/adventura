@@ -3,6 +3,10 @@ package com.github.jdolezalek.adventura.ui;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import com.github.jdolezalek.adventura.logika.Hra;
 import com.github.jdolezalek.adventura.logika.IHra;
@@ -11,6 +15,7 @@ import com.github.jdolezalek.adventura.logika.Prostor;
 
 import java.io.*;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -46,6 +51,11 @@ public class homeController extends GridPane implements Observer {
 	@FXML private ImageView imageViewBatoh7;
 	@FXML private ImageView imageViewBatoh8;
 	
+	JFrame oknoMapa;
+    JPanel mapaPanel;
+    ImageIcon mapaIcon;
+    JLabel obrazekLabel;
+	
 	private IHra hra;
 	
 	
@@ -79,11 +89,27 @@ public class homeController extends GridPane implements Observer {
 		
 		hra.getHerniPlan().addObserver(this);
 		
+		oknoMapa = new JFrame();
+        oknoMapa.setDefaultCloseOperation(3);
+        oknoMapa.setTitle("Mapa");
+        oknoMapa.setSize(1024, 640);
+        mapaPanel = new JPanel();
+        
+        oknoMapa.add(mapaPanel);
+        
+        URL umisteniObrazku = this.getClass().getResource("/herniPlan.png");
+        mapaIcon = new ImageIcon(umisteniObrazku);
+        obrazekLabel = new JLabel(mapaIcon);
+        
+        mapaPanel.add(obrazekLabel);
+        
+        oknoMapa.setVisible(true);
+		
 	}
 	
 	public void novaHra() {
 		
-		imageViewMap.setImage(new Image("file:res/herniPlan.png"));
+		imageViewMap.setImage(new Image("/herniPlan.png"));
 		imageViewBatoh1.setImage(null);
 		imageViewBatoh2.setImage(null);
 		imageViewBatoh3.setImage(null);
@@ -142,20 +168,71 @@ public class homeController extends GridPane implements Observer {
 		seznamMistnosti.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
 		
 		
-		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("hlavní_město"))
+		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("hlavní_město")) {
 		    imageViewMap.setImage(new Image("/herniPlan_hlavniMesto.png"));
-		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("hospoda"))
-		    imageViewMap.setImage(new Image("/herniPlan.png"));
-		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("les"))
-		    imageViewMap.setImage(new Image("/herniPlan_les.png"));
-		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("hluboký_les"))
+
+		    URL umisteniObrazku = this.getClass().getResource("/herniPlan_hlavniMesto.png");
+	        mapaIcon = new ImageIcon(umisteniObrazku);
+	        obrazekLabel = new JLabel(mapaIcon);
+	        mapaPanel.removeAll();
+	        mapaPanel.add(obrazekLabel);
+	        oknoMapa.setVisible(true);
+		}
+		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("hospoda")) {
+			imageViewMap.setImage(new Image("/herniPlan.png"));
+			URL umisteniObrazku = this.getClass().getResource("/herniPlan.png");
+	        mapaIcon = new ImageIcon(umisteniObrazku);
+	        obrazekLabel = new JLabel(mapaIcon);
+	        mapaPanel.removeAll();
+	        mapaPanel.add(obrazekLabel);
+	        oknoMapa.setVisible(true);
+		}
+		    
+		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("les")) {
+			imageViewMap.setImage(new Image("/herniPlan_les.png"));
+			URL umisteniObrazku = this.getClass().getResource("/herniPlan_les.png");
+        	mapaIcon = new ImageIcon(umisteniObrazku);
+        	obrazekLabel = new JLabel(mapaIcon);
+        	mapaPanel.removeAll();
+        	mapaPanel.add(obrazekLabel);
+        	oknoMapa.setVisible(true);
+		    }
+		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("hluboký_les")) {
 		    imageViewMap.setImage(new Image("/herniPlan_hlubokyLes.png"));
-		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("k_elfům"))
+		    URL umisteniObrazku = this.getClass().getResource("/herniPlan_hlubokyLes.png");
+	        mapaIcon = new ImageIcon(umisteniObrazku);
+	        obrazekLabel = new JLabel(mapaIcon);
+	        mapaPanel.removeAll();
+	        mapaPanel.add(obrazekLabel);
+	        oknoMapa.setVisible(true);
+	        }
+		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("k_elfům")) {
 		    imageViewMap.setImage(new Image("/herniPlan2.png"));
-		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("nádvoří"))
+		    URL umisteniObrazku = this.getClass().getResource("/herniPlan2.png");
+		    mapaIcon = new ImageIcon(umisteniObrazku);
+		    obrazekLabel = new JLabel(mapaIcon);
+		    mapaPanel.removeAll();
+		    mapaPanel.add(obrazekLabel);
+		    oknoMapa.setVisible(true);
+        }
+		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("nádvoří")) {
 		    imageViewMap.setImage(new Image("/herniPlan2_nadvori.png"));
-		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("věž_mágů"))
+	   		URL umisteniObrazku = this.getClass().getResource("/herniPlan2_nadvori.png");
+	   		mapaIcon = new ImageIcon(umisteniObrazku);
+	   		obrazekLabel = new JLabel(mapaIcon);
+	   		mapaPanel.removeAll();
+	   		mapaPanel.add(obrazekLabel);
+	   		oknoMapa.setVisible(true);
+			}
+		if(hra.getHerniPlan().getAktualniProstor().getNazev().equals("věž_mágů")) {
 		    imageViewMap.setImage(new Image("/herniPlan2_vezMagu.png"));
+			URL umisteniObrazku = this.getClass().getResource("/herniPlan2_vezMagu.png");
+			mapaIcon = new ImageIcon(umisteniObrazku);
+			obrazekLabel = new JLabel(mapaIcon);
+			mapaPanel.removeAll();
+			mapaPanel.add(obrazekLabel);
+			oknoMapa.setVisible(true);
+		}
 		
 		if(hra.getHerniPlan().getBatoh().obsahujeVec("meč"))
 			imageViewBatoh1.setImage(new Image("/mec.png"));
