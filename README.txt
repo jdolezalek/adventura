@@ -1,4 +1,4 @@
-﻿ADVENTURA - PODIVNE PROBUZENI
+﻿ADVENTURA - PODIVNÉ PROBUZENÍ
 AUTOR: Jan Doležálek
 Verze: 1.00
 Jednoduchá textová adventura vytvořená jako seminární práce na VŠE.
@@ -6,4 +6,4 @@ Jednoduchá textová adventura vytvořená jako seminární práce na VŠE.
 K tomu aby hru bylo možné dokončit je nutné promlouvat s osobami ve hře a tím si
 zpřístupnit další lokace. Hru je možné i prohrát pokud se hráč dostane do "prohrávací" lokace
 a pokud nemá potřebný předmět na překonání této lokace.
-Hru spouštíme z libovolného adresáře pomocí příkazu java -jar adventuraPP.jar
+Hru spouštíme z libovolného adresáře dvojklikem na jar achriv adventuraPodivneProbuzeni.

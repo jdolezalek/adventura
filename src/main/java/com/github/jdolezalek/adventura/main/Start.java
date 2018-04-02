@@ -31,13 +31,11 @@ public class Start extends Application
     {
         //IHra hra = new Hra();
         //TextoveRozhrani ui = new TextoveRozhrani(hra);
-        
         //if (args.length < 1) {
          //   ui.hraj();
         //} else {
           //  ui.hrajZeSouboru(args[0]);
         //}
-    	
     	launch(args);
     }
     
